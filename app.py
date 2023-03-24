@@ -1,16 +1,14 @@
 from flask import Flask, jsonify, request
-from flask_cors import CORS
+# from flask_cors import CORS
 import openai
 import os
 
 app = Flask(__name__)
-CORS(app)
+# CORS(app)
 
-openai.api_key = open("key.txt", "r").read().strip("\n")
-
-@app.route('/')
-def hello():
-    return 'Hello, World!'
+with open("key.txt") as f:
+    openai.api_key = f.read().strip("\n")
+# openai.api_key = open("key.txt", "r").read().strip("\n")
 
 @app.route('/api/data/', methods=['POST'])
 def get_data():

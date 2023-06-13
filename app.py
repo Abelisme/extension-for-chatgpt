@@ -1,16 +1,24 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, render_template
 # from flask_cors import CORS
 import openai
 import os
+from config import api_key, base_templates_path
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder = base_templates_path)
+# app.config['EXPLAIN_TEMPLATE_LOADING'] = True #for test templete folder path will show INFO
+# refer:https://stackoverflow.com/questions/23327293/flask-raises-templatenotfound-error-even-though-template-file-exists
 # CORS(app)
 
-with open("key.txt") as f:
-    openai.api_key = f.read().strip("\n")
-# openai.api_key = open("key.txt", "r").read().strip("\n")
+# with open("key.txt") as f:
+#     openai.api_key = f.read().strip("\n")
+openai.api_key = api_key
 
-@app.route('/api/data/', methods=['POST'])
+@app.route('/')
+def home():
+    # app.logger.debug('A value for debugging')
+    return render_template('/home/index.html', title='Home Page', userName='quk')
+
+@app.route('/api/openai/text/', methods=['POST'])
 def get_data():
     data = request.get_json()
     input = data['message']

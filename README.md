@@ -16,13 +16,13 @@ To get started with this microservice, follow the steps below:
 1. Clone this repository to your local machine:
 
    ```bash
-   git clone https://github.com/your-username/flask-chatgpt-microservice.git
+   git clone https://github.com/Abelisme/extension-for-chatgpt.git
    ```
 
 2. Navigate to the cloned directory:
 
    ```bash
-   cd flask-chatgpt-microservice
+   cd extension-for-chatgpt.git
    ```
 
 3. Create a virtual environment (optional but recommended):
@@ -78,3 +78,6 @@ This project is licensed under the MIT License. See the `LICENSE` file for more 
 
 - This microservice was created using Flask and the OpenAI Python SDK.
 - Thank you to the OpenAI team for providing the ChatGPT API.
+
+## Image
+![alt text](https://github.com/Abelisme/extension-for-chatgpt/blob/master/readme-images/curl-api-openai-text-200.png?raw=true)
